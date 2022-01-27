@@ -52,6 +52,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
    
+    fileprivate func addPoke(pokeResource: String, planeNode: SCNNode) {
+        if let pokeScene = SCNScene(named: "art.scnassets/\(pokeResource)") {
+            
+            if let pokeNode =  pokeScene.rootNode.childNodes.first {
+                
+                pokeNode.eulerAngles.x = .pi / 2
+                
+                planeNode.addChildNode(pokeNode)
+                
+            }
+        }
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
         
@@ -68,6 +81,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         planeNode.eulerAngles.x = -Float.pi / 2
         
         node.addChildNode(planeNode)
+        
+        addPoke(pokeResource: "eevee.scn", planeNode: planeNode)
         
         return node
     }
