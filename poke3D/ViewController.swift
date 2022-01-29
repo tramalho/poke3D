@@ -32,7 +32,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let imageTracking = ARReferenceImage.referenceImages(inGroupNamed: "Pokemon Cards", bundle: Bundle.main) {
             
             configuration.trackingImages = imageTracking
-            configuration.maximumNumberOfTrackedImages = 1
+            configuration.maximumNumberOfTrackedImages = 2
             
             print("Image succefully added")
         }
@@ -82,7 +82,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         node.addChildNode(planeNode)
         
-        addPoke(pokeResource: "eevee.scn", planeNode: planeNode)
+        if let imageName = imageAnchor.referenceImage.name {
+            addPoke(pokeResource: "\(imageName).scn", planeNode: planeNode)
+        }
         
         return node
     }

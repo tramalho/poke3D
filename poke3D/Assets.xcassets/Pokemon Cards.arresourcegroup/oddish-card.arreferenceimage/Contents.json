@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "oddish-card.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "unit" : "inches",
+    "width" : 7.3499999999999996
+  }
+}
